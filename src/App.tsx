@@ -130,7 +130,7 @@ export default function App() {
             <div className="col-span-12 lg:col-span-6 flex flex-col gap-2 items-end">
               <h2 className="font-['Heebo:ExtraBold'] font-extrabold text-[#0f2742] text-[30px] leading-[36px] sm:text-[36px] sm:leading-[40px] text-right w-full">אודות</h2>
               <div className="bg-[#cca262] h-[3px] rounded-[2px] w-[44px]" />
-              <div className="flex flex-col gap-5 items-end pt-5 pb-7 w-full">
+              <div className="flex flex-col gap-5 items-end pt-5 w-full">
                 <div className="text-right w-full">
                   <p className="font-['Heebo:Regular'] font-normal text-[#334155] text-[18px] leading-[29.25px] mb-0 inline xl:block">משרד אלירז הוא משרד רואי חשבון קטן ובוטיקי שמעניק שירות אישי ומקצועי</p>
                   {" "}<p className="font-['Heebo:Regular'] font-normal text-[#334155] text-[18px] leading-[29.25px] inline xl:block">לעוסקים מורשים, פטורים זעירים, חברות ועמותות.</p>
@@ -140,10 +140,6 @@ export default function App() {
                   {" "}<p className="font-['Heebo:Regular'] font-normal text-[#334155] text-[18px] leading-[29.25px] inline xl:block">הצרכים הייחודיים של כל לקוח וליווי לאורך כל הדרך.</p>
                 </div>
               </div>
-              <a href="#contact" className="relative bg-[#0f2742] flex items-center justify-center px-8 py-[14px] rounded-[8px] cursor-pointer border-0 no-underline">
-                <div className="absolute inset-0 rounded-[8px] shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1),0px_2px_4px_-2px_rgba(0,0,0,0.1)]" />
-                <span className="font-['Heebo:Medium'] font-medium text-white text-[16px] leading-[24px] relative z-10">לפרטים נוספים</span>
-              </a>
             </div>
             {/* Left: office image */}
             <div className="col-span-12 lg:col-span-6 bg-white border border-[rgba(226,232,240,0.8)] rounded-2xl overflow-hidden shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)] relative h-[280px] sm:h-[360px] lg:h-[421px]">
