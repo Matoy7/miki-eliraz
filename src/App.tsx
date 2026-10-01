@@ -138,7 +138,7 @@ export default function App() {
         {/* Contact */}
         <section id="contact" className={`bg-white ${HEADER_OFFSET}`}>
           <div className="container-page section-y">
-            <SectionHeader title="יצירת קשר" intro="נשמח לשמוע ולבדוק איך נוכל לעזור." />
+            <SectionHeader title="יצירת קשר" />
             <ul className="w-fit mx-auto flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-12 list-none m-0 p-0">
               {CONTACT_ITEMS.map(({ href, external, text, icon, iconCls }) => (
                 <li key={text}>
@@ -164,11 +164,11 @@ export default function App() {
         <div className="container-page py-8 flex flex-col-reverse md:flex-row items-center justify-between gap-4 text-center">
           <p className="font-['Heebo:Regular'] font-normal text-faint text-caption text-balance">© כל הזכויות שמורות - {FIRM_NAME}</p>
           <div className="flex items-center gap-2">
-            <span className="font-['Heebo:Bold'] font-bold text-white text-caption tracking-[0.025em]">{FIRM_NAME}</span>
             <picture className="shrink-0">
               <source srcSet={imgLogoWebp} type="image/webp" />
               <img src={imgLogoPng} alt="" width={162} height={144} className="block h-8 w-auto" />
             </picture>
+            <span className="font-['Heebo:Bold'] font-bold text-white text-caption tracking-[0.025em]">{FIRM_NAME}</span>
           </div>
         </div>
       </footer>
