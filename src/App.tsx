@@ -17,8 +17,12 @@ const imgAboutOffice = `${assetPathPrefix}/about-office.jpg`;
 const imgLogoWebp = `${assetPathPrefix}/logo.webp`;
 const imgLogoPng = `${assetPathPrefix}/logo.png`;
 
+const FIRM_NAME = "אלירז, אהרון ושות' רואי חשבון";
 const CONTACT_EMAIL = "office@eliraz.co.il";
-const CONTACT_PHONE = "050-1234567";
+const CONTACT_PHONE = "04-8732323";
+const CONTACT_ADDRESS = "דרך עכו 80, קריית ביאליק";
+const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT_ADDRESS)}`;
+const TEL_HREF = `tel:${CONTACT_PHONE.replace(/[^\d+]/g, "")}`;
 const MEETING_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("קביעת פגישה")}`;
 
 const NAV_ITEMS = [
@@ -97,8 +101,8 @@ export default function App() {
               <img src={imgLogoPng} alt="" width={162} height={144} className="block h-11 md:h-[60px] w-auto" />
             </picture>
             <span className="flex flex-col items-end">
-              <span className="font-['Heebo:Black'] font-black text-[#0f2742] text-[30px] leading-[36px] tracking-[-0.75px]">מיקי אלירז</span>
-              <span className="font-['Heebo:SemiBold'] font-semibold text-[#64748b] text-[11px] tracking-[0.55px] uppercase leading-[13.75px]">משרד רואי חשבון</span>
+              <span className="font-['Heebo:Black'] font-black text-[#0f2742] text-[20px] leading-[26px] min-[400px]:text-[22px] min-[400px]:leading-[28px] lg:text-[26px] lg:leading-[32px] tracking-[-0.5px] whitespace-nowrap">אלירז, אהרון ושות'</span>
+              <span className="font-['Heebo:SemiBold'] font-semibold text-[#64748b] text-[11px] tracking-[0.55px] leading-[13.75px] whitespace-nowrap">רואי חשבון</span>
             </span>
           </a>
 
@@ -195,11 +199,32 @@ export default function App() {
           <div className="flex flex-col gap-3 items-start flex-1">
             {/* Heading */}
             <h1 className="flex flex-col gap-1 items-start w-full">
-              <span className="font-['Heebo:Black'] font-black text-[#0f2742] text-[44px] leading-[46px] sm:text-[54px] sm:leading-[54px] tracking-[-1.35px]">אלירז</span>
-              <span className="font-['Heebo:Bold'] font-bold text-[#0f2742] text-[34px] leading-[36px] sm:text-[42px] sm:leading-[40px] tracking-[-1.35px]">משרד רואי חשבון</span>
+              <span className="font-['Heebo:Black'] font-black text-[#0f2742] text-[34px] leading-[40px] min-[400px]:text-[38px] min-[400px]:leading-[44px] sm:text-[54px] sm:leading-[58px] tracking-[-1.35px]">אלירז, אהרון ושות'</span>{" "}
+              <span className="font-['Heebo:Bold'] font-bold text-[#0f2742] text-[30px] leading-[36px] sm:text-[42px] sm:leading-[44px] tracking-[-1.35px]">רואי חשבון</span>
             </h1>
             {/* Gold accent */}
             <div className="bg-[#cca262] h-[3px] rounded-[2px] w-[44px]" />
+            {/* Contact details */}
+            <ul className="flex flex-col gap-0 sm:gap-2.5 pt-2 sm:pt-3 list-none m-0 p-0">
+              {[
+                { href: MAPS_URL, icon: imgContainer6, iconCls: "h-[11.18px] w-[8.4px]", text: CONTACT_ADDRESS, external: true },
+                { href: TEL_HREF, icon: imgContainer8, iconCls: "size-[11.2px] -rotate-90", text: CONTACT_PHONE, external: false },
+                { href: `mailto:${CONTACT_EMAIL}`, icon: imgContainer7, iconCls: "h-[8.4px] w-[11.2px]", text: CONTACT_EMAIL, external: false },
+              ].map(({ href, icon, iconCls, text, external }) => (
+                <li key={text}>
+                  <a
+                    href={href}
+                    {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    className="group flex items-center gap-3 min-h-[44px] sm:min-h-[32px] no-underline"
+                  >
+                    <span className="bg-[#0f2742] rounded-full size-8 flex items-center justify-center shrink-0">
+                      <img alt="" className={`block max-w-none ${iconCls}`} src={icon} />
+                    </span>
+                    <span className="font-['Heebo:Medium'] font-medium text-[#1e293b] text-[17px] leading-[24px] group-hover:text-[#0f2742] group-hover:underline underline-offset-4">{text}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
             {/* Subheading */}
             <div className="pt-4 w-full text-right">
               <p className="font-['Heebo:Bold'] font-bold text-[#1e293b] text-[20px] leading-[28px] sm:text-[24px] sm:leading-[32px] mb-0">ראיית חשבון, ייעוץ וליווי פיננסי</p>
@@ -328,14 +353,14 @@ export default function App() {
           {/* Contact badges */}
           <div className="flex flex-col lg:flex-row gap-2 lg:gap-8 items-center justify-center flex-wrap w-full">
             {/* Location */}
-            <div className="flex gap-4 items-center justify-center p-[21px] rounded-[12px]">
-              <span className="font-['Heebo:SemiBold'] font-semibold text-[#1e293b] text-[20px] leading-[28px]">תל אביב והסביבה</span>
+            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="flex gap-4 items-center justify-center p-[21px] rounded-[12px] no-underline">
+              <span className="font-['Heebo:SemiBold'] font-semibold text-[#1e293b] text-[20px] leading-[28px]">{CONTACT_ADDRESS}</span>
               <div className="bg-[#0f2742] rounded-full size-[48px] flex items-center justify-center shrink-0">
                 <div className="h-[13.973px] relative w-[10.5px]">
                   <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgContainer6} />
                 </div>
               </div>
-            </div>
+            </a>
             {/* Email */}
             <a href={`mailto:${CONTACT_EMAIL}`} className="flex gap-4 items-center justify-center p-[21px] rounded-[12px] no-underline">
               <span className="font-['Heebo:SemiBold'] font-semibold text-[#1e293b] text-[20px] leading-[28px]">{CONTACT_EMAIL}</span>
@@ -346,7 +371,7 @@ export default function App() {
               </div>
             </a>
             {/* Phone */}
-            <a href={`tel:${CONTACT_PHONE.replace(/[^\d+]/g, "")}`} className="flex gap-4 items-center justify-center p-[21px] rounded-[12px] no-underline">
+            <a href={TEL_HREF} className="flex gap-4 items-center justify-center p-[21px] rounded-[12px] no-underline">
               <span className="font-['Heebo:SemiBold'] font-semibold text-[#1e293b] text-[20px] leading-[28px] tracking-[0.5px]">{CONTACT_PHONE}</span>
               <div className="bg-[#0f2742] rounded-full size-[48px] flex items-center justify-center shrink-0">
                 <div className="flex items-center justify-center size-[14px]">
@@ -366,14 +391,13 @@ export default function App() {
       <footer className="bg-[#0f2742] border-t border-[#1e293b] pb-8 pt-[33px] px-5">
         <div className="max-w-[1240px] mx-auto w-full">
           <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-4 text-center px-0 sm:px-6">
-            <span className="font-['Heebo:Regular'] font-normal text-[#94a3b8] text-[14px] leading-[20px]">© כל הזכויות שמורות - אלירז משרד רואי חשבון</span>
+            <span className="font-['Heebo:Regular'] font-normal text-[#94a3b8] text-[14px] leading-[20px]">© כל הזכויות שמורות - {FIRM_NAME}</span>
             <div className="flex gap-2 items-center">
-              <span className="font-['Heebo:Bold'] font-bold text-white text-[14px] leading-[20px] tracking-[0.35px]">אלירז - משרד רואי חשבון</span>
-              <div className="flex gap-[3px] h-5 items-end pb-[2px]">
-                <div className="bg-white h-5 rounded-[1px] w-[3px]" />
-                <div className="bg-[#4c84be] h-[14px] rounded-[1px] w-[3px]" />
-                <div className="bg-[#cca262] h-[10px] rounded-[1px] w-[3px]" />
-              </div>
+              <span className="font-['Heebo:Bold'] font-bold text-white text-[14px] leading-[20px] tracking-[0.35px]">{FIRM_NAME}</span>
+              <picture className="shrink-0">
+                <source srcSet={imgLogoWebp} type="image/webp" />
+                <img src={imgLogoPng} alt="" width={162} height={144} className="block h-7 w-auto" />
+              </picture>
             </div>
           </div>
         </div>
