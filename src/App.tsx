@@ -18,7 +18,8 @@ const FIRM_NAME = "אלירז מיכאל ושות' משרד רואי חשבון"
 const CONTACT_EMAIL = "office@eliraz.co.il";
 const CONTACT_PHONE = "04-8732323";
 const CONTACT_ADDRESS = "דרך עכו 80, קריית ביאליק";
-const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT_ADDRESS)}`;
+// Waze universal link: opens the Waze app (or waze.com on desktop) with navigation to the address.
+const WAZE_URL = `https://waze.com/ul?q=${encodeURIComponent(CONTACT_ADDRESS)}&navigate=yes`;
 const TEL_HREF = `tel:${CONTACT_PHONE.replace(/[^\d+]/g, "")}`;
 
 const HEADER_OFFSET = "scroll-mt-18 md:scroll-mt-24";
@@ -47,7 +48,7 @@ const SERVICES = [
 ];
 
 const CONTACT_ITEMS = [
-  { href: MAPS_URL, external: true, text: CONTACT_ADDRESS, icon: imgContainer6, iconCls: "h-[14px] w-[10.5px]" },
+  { href: WAZE_URL, external: true, text: CONTACT_ADDRESS, icon: imgContainer6, iconCls: "h-[14px] w-[10.5px]" },
   { href: `mailto:${CONTACT_EMAIL}`, external: false, text: CONTACT_EMAIL, icon: imgContainer7, iconCls: "h-[10.5px] w-[14px]" },
   { href: TEL_HREF, external: false, text: CONTACT_PHONE, icon: imgContainer8, iconCls: "size-[14px] -rotate-90" },
 ];
