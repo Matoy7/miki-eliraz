@@ -11,5 +11,13 @@
   "accessibility": {
     "addBypassLinks": false,
     "ignoreReducedMotion": false
+  },
+  "openGraph": {
+    "image": "og-image.jpg",
+    "imageWidth": 1200,
+    "imageHeight": 630,
+    "imageAlt": "הלוגו של אלירז מיכאל ושות' משרד רואי חשבון",
+    "siteName": "אלירז מיכאל ושות' משרד רואי חשבון",
+    "locale": "he_IL"
   }
 }

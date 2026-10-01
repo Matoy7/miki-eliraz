@@ -44,6 +44,8 @@ jobs:
         env:
           # "/miki-eliraz" on github.io, "" if a custom domain is configured later.
           BASE_PATH: ${{ steps.pages.outputs.base_path }}/
+          # Absolute site URL for link previews (og:image / og:url).
+          SITE_URL: ${{ steps.pages.outputs.base_url }}
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5

@@ -9,6 +9,17 @@ import siteConfiguration from './.figma/make/site.json'
 // Vite config — https://vitejs.dev/config/
 // GitHub Pages project site: https://matoy7.github.io/miki-eliraz/
 const GITHUB_PAGES_BASE = '/miki-eliraz/'
+const GITHUB_PAGES_URL = 'https://matoy7.github.io/miki-eliraz/'
+
+/**
+ * Absolute public URL of the site, needed for link previews (og:url, og:image):
+ * WhatsApp/Facebook/etc. ignore relative image URLs. The workflow passes
+ * SITE_URL from actions/configure-pages, so a custom domain is picked up too.
+ */
+function resolveSiteUrl(): string {
+  const url = process.env.SITE_URL?.trim() || GITHUB_PAGES_URL
+  return url.endsWith('/') ? url : `${url}/`
+}
 
 /**
  * Public base path the site is served from.
@@ -37,7 +48,7 @@ export default defineConfig(({ command, mode }) => {
     plugins: [
 react(),
       tailwindcss(),
-      figmaSiteConfiguration(siteConfiguration),
+      figmaSiteConfiguration(siteConfiguration, resolveSiteUrl()),
       figmaErrorOverlayReplay(),
       figmaReactRefreshBoundaryFallback(),
       figmaMakeKitPlugin({ storiesGlob: '/src/**/*.stories.{ts,tsx,js,jsx}' }),
@@ -76,6 +87,11 @@ type FigmaSiteConfiguration = {
   }
   openGraph?: {
     image?: string
+    imageWidth?: number
+    imageHeight?: number
+    imageAlt?: string
+    siteName?: string
+    locale?: string
   }
   analytics?: {
     googleAnalyticsId?: string
@@ -92,7 +108,9 @@ type FigmaSiteConfiguration = {
 }
 
 /** Applies /.figma/make/site.json to the generated document shell. */
-function figmaSiteConfiguration(config: FigmaSiteConfiguration): Plugin {
+function figmaSiteConfiguration(config: FigmaSiteConfiguration, siteUrl: string): Plugin {
+  const absoluteUrl = (value: string) => (/^https?:\/\//.test(value) ? value : new URL(value.replace(/^\//, ''), siteUrl).href)
+
   function sanitizeHtmlValue(value: string | undefined): string {
     return value?.replace(/[^a-zA-Z0-9_-]/g, '') || ''
   }
@@ -106,7 +124,7 @@ function figmaSiteConfiguration(config: FigmaSiteConfiguration): Plugin {
   const title = config.title ?? "Figma Make App"
   const description = config.description ?? ''
   const favicon = config.icons?.icon ?? ''
-  const socialImage = config.openGraph?.image ?? ''
+  const socialImage = config.openGraph?.image ? absoluteUrl(config.openGraph.image) : ''
   const language = sanitizeHtmlValue(config.language) || 'en'
   const googleAnalyticsId = sanitizeHtmlValue(config.analytics?.googleAnalyticsId)
   const headStart = config.customScripts?.headStart ?? ''
@@ -155,18 +173,50 @@ function figmaSiteConfiguration(config: FigmaSiteConfiguration): Plugin {
         if (favicon) {
           tags.push({ tag: 'link', attrs: { rel: 'icon', href: favicon }, injectTo: 'head' })
         }
+        const og = config.openGraph ?? {}
+        tags.push(
+          { tag: 'link', attrs: { rel: 'canonical', href: siteUrl }, injectTo: 'head' },
+          { tag: 'meta', attrs: { property: 'og:type', content: 'website' }, injectTo: 'head' },
+          { tag: 'meta', attrs: { property: 'og:url', content: siteUrl }, injectTo: 'head' },
+        )
+        if (og.siteName) {
+          tags.push({ tag: 'meta', attrs: { property: 'og:site_name', content: og.siteName }, injectTo: 'head' })
+        }
+        if (og.locale) {
+          tags.push({ tag: 'meta', attrs: { property: 'og:locale', content: og.locale }, injectTo: 'head' })
+        }
         if (title) {
-          tags.push({ tag: 'meta', attrs: { property: 'og:title', content: title }, injectTo: 'head' })
+          tags.push(
+            { tag: 'meta', attrs: { property: 'og:title', content: title }, injectTo: 'head' },
+            { tag: 'meta', attrs: { name: 'twitter:title', content: title }, injectTo: 'head' },
+          )
         }
         if (description) {
-          tags.push({ tag: 'meta', attrs: { property: 'og:description', content: description }, injectTo: 'head' })
+          tags.push(
+            { tag: 'meta', attrs: { property: 'og:description', content: description }, injectTo: 'head' },
+            { tag: 'meta', attrs: { name: 'twitter:description', content: description }, injectTo: 'head' },
+          )
         }
         if (socialImage) {
           tags.push(
             { tag: 'meta', attrs: { property: 'og:image', content: socialImage }, injectTo: 'head' },
+            { tag: 'meta', attrs: { property: 'og:image:secure_url', content: socialImage }, injectTo: 'head' },
+            { tag: 'meta', attrs: { property: 'og:image:type', content: socialImage.endsWith('.png') ? 'image/png' : 'image/jpeg' }, injectTo: 'head' },
             { tag: 'meta', attrs: { name: 'twitter:card', content: 'summary_large_image' }, injectTo: 'head' },
             { tag: 'meta', attrs: { name: 'twitter:image', content: socialImage }, injectTo: 'head' },
           )
+          if (og.imageWidth && og.imageHeight) {
+            tags.push(
+              { tag: 'meta', attrs: { property: 'og:image:width', content: String(og.imageWidth) }, injectTo: 'head' },
+              { tag: 'meta', attrs: { property: 'og:image:height', content: String(og.imageHeight) }, injectTo: 'head' },
+            )
+          }
+          if (og.imageAlt) {
+            tags.push(
+              { tag: 'meta', attrs: { property: 'og:image:alt', content: og.imageAlt }, injectTo: 'head' },
+              { tag: 'meta', attrs: { name: 'twitter:image:alt', content: og.imageAlt }, injectTo: 'head' },
+            )
+          }
         }
 
         if (googleAnalyticsId) {

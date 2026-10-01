@@ -62,7 +62,7 @@ export default function App() {
           <a href="#home" aria-label={FIRM_NAME} className="flex items-center shrink-0 no-underline">
             <picture className="shrink-0">
               <source srcSet={imgLogoWebp} type="image/webp" />
-              <img src={imgLogoPng} alt="" width={162} height={144} className="block h-11 md:h-14 w-auto" />
+              <img src={imgLogoPng} alt="" width={165} height={144} className="block h-11 md:h-14 w-auto" />
             </picture>
           </a>
 
@@ -167,7 +167,7 @@ export default function App() {
           <div className="flex items-center gap-2">
             <picture className="shrink-0">
               <source srcSet={imgLogoWebp} type="image/webp" />
-              <img src={imgLogoPng} alt="" width={162} height={144} className="block h-8 w-auto" />
+              <img src={imgLogoPng} alt="" width={165} height={144} className="block h-8 w-auto" />
             </picture>
             <span className="font-['Heebo:Bold'] font-bold text-white text-caption tracking-[0.025em]">{FIRM_NAME}</span>
           </div>
