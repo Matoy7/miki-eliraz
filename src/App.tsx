@@ -83,13 +83,10 @@ export default function App() {
                 <span className="font-['Heebo:Bold'] font-bold text-display-sub">משרד רואי חשבון</span>
               </h1>
               <Accent className="mt-6" />
-              <p className="mt-8 font-['Heebo:Bold'] font-bold text-ink-soft text-lead max-w-xl">
+              <p className="mt-8 font-['Heebo:Regular'] font-normal text-ink-soft text-lead max-w-xl">
                 ראיית חשבון, ייעוץ וליווי פיננסי
                 <br />
                 לעוסקים מורשים, פטורים זעירים, חברות ועמותות.
-              </p>
-              <p className="mt-4 font-['Heebo:Regular'] font-normal text-muted text-body-lg max-w-xl text-pretty">
-                שירות אישי, מקצועי וזמין, עם הסתכלות רחבה על התמונה הפיננסית.
               </p>
             </div>
             <div className="hidden lg:block aspect-[5/4] rounded-2xl overflow-hidden shadow-[0px_20px_40px_-10px_rgba(0,0,0,0.15)]">
