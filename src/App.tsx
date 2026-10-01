@@ -5,6 +5,7 @@ const imgContainer = `${assetPathPrefix}/903cc.svg`;
 const imgContainer1 = `${assetPathPrefix}/9194d.svg`;
 const imgContainer2 = `${assetPathPrefix}/b24cd.svg`;
 const imgContainer3 = `${assetPathPrefix}/9051b.svg`;
+const imgContainer5 = `${assetPathPrefix}/45a25.svg`;
 const imgContainer6 = `${assetPathPrefix}/17250.svg`;
 const imgContainer7 = `${assetPathPrefix}/a6466.svg`;
 const imgContainer8 = `${assetPathPrefix}/0e643.svg`;
@@ -33,6 +34,18 @@ export default function App() {
               <img src={imgLogoPng} alt="" width={162} height={144} className="block h-11 md:h-[60px] w-auto" />
             </picture>
           </a>
+
+          {/* CTA Button */}
+          <a href="#contact" className="flex bg-[#0f2742] drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] gap-2 items-center min-h-[44px] md:min-h-0 pl-6 pr-[22px] py-[10px] rounded-[8px] cursor-pointer border-0 no-underline">
+            <span className="font-['Heebo:Medium'] font-medium text-white text-[14px] leading-[20px]">יצירת קשר</span>
+            <div className="flex items-center justify-center size-3">
+              <div className="-rotate-90 flex-none">
+                <div className="relative size-3">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgContainer5} />
+                </div>
+              </div>
+            </div>
+          </a>
         </div>
       </header>
 
@@ -58,8 +71,7 @@ export default function App() {
             </div>
             {/* Body text */}
             <div className="w-full text-right">
-              <p className="font-['Heebo:Regular'] font-normal text-[#475569] text-[17px] leading-[27px] sm:text-[18px] sm:leading-[28px] mb-0">שירות אישי, מקצועי וזמין,</p>
-              <p className="font-['Heebo:Regular'] font-normal text-[#475569] text-[17px] leading-[27px] sm:text-[18px] sm:leading-[28px]">עם הסתכלות רחבה על התמונה הפיננסית.</p>
+              <p className="font-['Heebo:Regular'] font-normal text-[#475569] text-[17px] leading-[27px] sm:text-[18px] sm:leading-[28px] mb-0">שירות אישי, מקצועי וזמין, עם הסתכלות רחבה על התמונה הפיננסית.</p>
             </div>
           </div>
           {/* Left: photo */}
