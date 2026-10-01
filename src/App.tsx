@@ -41,10 +41,10 @@ function SectionHeader({ title, intro }: { title: string; intro?: string }) {
 }
 
 const SERVICES = [
-  { icon: imgContainer, label: "ליווי עסקים ועצמאיים", desc: "ייעוץ וליווי פיננסי שוטף, כולל תכנון והסתכלות על התמונה הגדולה.", iconCls: "h-6 w-[30px]" },
-  { icon: imgContainer1, label: "ייעוץ מס", desc: "תכנון מס, ליווי ופתרונות מותאמים לצמיחה עסקית.", iconCls: "size-[21px]" },
-  { icon: imgContainer2, label: "דוחות שנתיים", desc: "הכנת דוחות כספיים והגשות לרשויות המס.", iconCls: "size-6" },
-  { icon: imgContainer3, label: "הנהלת חשבונות", desc: "ניהול שוטף ומדויק של החשבונות העסקיים.", iconCls: "h-6 w-[18px]" },
+  { icon: imgContainer, label: "ליווי עסקים ועצמאיים", iconCls: "h-6 w-[30px]" },
+  { icon: imgContainer1, label: "ייעוץ מס", iconCls: "size-[21px]" },
+  { icon: imgContainer2, label: "דוחות שנתיים", iconCls: "size-6" },
+  { icon: imgContainer3, label: "הנהלת חשבונות", iconCls: "h-6 w-[18px]" },
 ];
 
 const CONTACT_ITEMS = [
@@ -100,15 +100,12 @@ export default function App() {
           <div className="container-page section-y">
             <SectionHeader title="השירותים שלנו" />
             <ul className="grid sm:grid-cols-2 xl:grid-cols-4 gap-x-8 gap-y-8 sm:gap-y-12 list-none m-0 p-0">
-              {SERVICES.map(({ icon, label, desc, iconCls }) => (
-                <li key={label} className="flex sm:flex-col items-start sm:items-center gap-4 sm:gap-6 sm:text-center">
+              {SERVICES.map(({ icon, label, iconCls }) => (
+                <li key={label} className="flex sm:flex-col items-center gap-4 sm:gap-6 sm:text-center">
                   <span className="relative flex items-center justify-center size-16 sm:size-20 shrink-0 rounded-full bg-icon-bg shadow-[inset_0px_2px_4px_0px_rgba(0,0,0,0.05)]">
                     <img alt="" className={`block max-w-none ${iconCls}`} src={icon} />
                   </span>
-                  <div className="flex flex-col gap-2 sm:items-center pt-2 sm:pt-0">
-                    <h3 className="font-['Heebo:Bold'] font-bold text-ink text-h3 text-balance">{label}</h3>
-                    <p className="font-['Heebo:Regular'] font-normal text-muted text-body sm:max-w-72 text-balance">{desc}</p>
-                  </div>
+                  <h3 className="font-['Heebo:Bold'] font-bold text-ink text-h3 text-balance">{label}</h3>
                 </li>
               ))}
             </ul>
