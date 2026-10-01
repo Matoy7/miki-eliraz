@@ -6,7 +6,7 @@ const imgContainer1 = `${assetPathPrefix}/9194d.svg`;
 const imgContainer2 = `${assetPathPrefix}/b24cd.svg`;
 const imgContainer3 = `${assetPathPrefix}/9051b.svg`;
 const imgContainer5 = `${assetPathPrefix}/45a25.svg`;
-const imgNavigate = `${assetPathPrefix}/navigate.svg`;
+const imgWaze = `${assetPathPrefix}/waze.png`;
 const imgContainer7 = `${assetPathPrefix}/a6466.svg`;
 const imgContainer8 = `${assetPathPrefix}/0e643.svg`;
 const imgHeroPhoto = `${assetPathPrefix}/hero-photo.jpg`;
@@ -48,7 +48,7 @@ const SERVICES = [
 ];
 
 const CONTACT_ITEMS = [
-  { href: WAZE_URL, external: true, text: CONTACT_ADDRESS, icon: imgNavigate, iconCls: "size-4", label: `ניווט אל ${CONTACT_ADDRESS}` },
+  { href: WAZE_URL, external: true, text: CONTACT_ADDRESS, icon: imgWaze, iconCls: "size-6", label: `ניווט בוויז אל ${CONTACT_ADDRESS}` },
   { href: `mailto:${CONTACT_EMAIL}`, external: false, text: CONTACT_EMAIL, icon: imgContainer7, iconCls: "h-[10.5px] w-[14px]" },
   { href: TEL_HREF, external: false, text: CONTACT_PHONE, icon: imgContainer8, iconCls: "size-[14px] -rotate-90" },
 ];
