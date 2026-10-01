@@ -6,7 +6,7 @@ const imgContainer1 = `${assetPathPrefix}/9194d.svg`;
 const imgContainer2 = `${assetPathPrefix}/b24cd.svg`;
 const imgContainer3 = `${assetPathPrefix}/9051b.svg`;
 const imgContainer5 = `${assetPathPrefix}/45a25.svg`;
-const imgContainer6 = `${assetPathPrefix}/17250.svg`;
+const imgNavigate = `${assetPathPrefix}/navigate.svg`;
 const imgContainer7 = `${assetPathPrefix}/a6466.svg`;
 const imgContainer8 = `${assetPathPrefix}/0e643.svg`;
 const imgHeroPhoto = `${assetPathPrefix}/hero-photo.jpg`;
@@ -48,7 +48,7 @@ const SERVICES = [
 ];
 
 const CONTACT_ITEMS = [
-  { href: WAZE_URL, external: true, text: CONTACT_ADDRESS, icon: imgContainer6, iconCls: "h-[14px] w-[10.5px]" },
+  { href: WAZE_URL, external: true, text: CONTACT_ADDRESS, icon: imgNavigate, iconCls: "size-4", label: `ניווט אל ${CONTACT_ADDRESS}` },
   { href: `mailto:${CONTACT_EMAIL}`, external: false, text: CONTACT_EMAIL, icon: imgContainer7, iconCls: "h-[10.5px] w-[14px]" },
   { href: TEL_HREF, external: false, text: CONTACT_PHONE, icon: imgContainer8, iconCls: "size-[14px] -rotate-90" },
 ];
@@ -138,11 +138,12 @@ export default function App() {
           <div className="container-page section-y">
             <SectionHeader title="יצירת קשר" />
             <ul className="w-fit mx-auto flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-12 list-none m-0 p-0">
-              {CONTACT_ITEMS.map(({ href, external, text, icon, iconCls }) => (
+              {CONTACT_ITEMS.map(({ href, external, text, icon, iconCls, label }) => (
                 <li key={text}>
                   <a
                     href={href}
                     {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    aria-label={label}
                     className="group flex items-center gap-4 no-underline"
                   >
                     <span className="flex items-center justify-center size-12 shrink-0 rounded-full bg-navy">
