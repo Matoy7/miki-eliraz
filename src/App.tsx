@@ -14,7 +14,7 @@ const imgAboutOffice = `${assetPathPrefix}/about-office.jpg`;
 const imgLogoWebp = `${assetPathPrefix}/logo.webp`;
 const imgLogoPng = `${assetPathPrefix}/logo.png`;
 
-const FIRM_NAME = "אלירז מיכאל ושות' משרדי רואי חשבון";
+const FIRM_NAME = "אלירז מיכאל ושות' משרד רואי חשבון";
 const CONTACT_EMAIL = "office@eliraz.co.il";
 const CONTACT_PHONE = "04-8732323";
 const CONTACT_ADDRESS = "דרך עכו 80, קריית ביאליק";
@@ -79,7 +79,7 @@ export default function App() {
             <div className="flex flex-col items-start">
               <h1 className="flex flex-col gap-2 text-navy">
                 <span className="font-['Heebo:Black'] font-black text-display">אלירז מיכאל ושות'</span>{" "}
-                <span className="font-['Heebo:Bold'] font-bold text-display-sub">משרדי רואי חשבון</span>
+                <span className="font-['Heebo:Bold'] font-bold text-display-sub">משרד רואי חשבון</span>
               </h1>
               <Accent className="mt-6" />
               <p className="mt-8 font-['Heebo:Bold'] font-bold text-ink-soft text-lead max-w-xl">
