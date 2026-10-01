@@ -1,0 +1,15 @@
+{
+  "title": "מיקי אלירז | משרד רואי חשבון",
+  "description": "משרד אלירז – ראיית חשבון, ייעוץ מס וליווי פיננסי לעסקים ולאנשים פרטיים. שירות אישי, מקצועי וזמין.",
+  "language": "he",
+  "robots": {
+    "index": true
+  },
+  "icons": {
+    "icon": "/favicon.svg"
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

@@ -1,0 +1,17 @@
+# Normalize text line endings; mark binaries so git never diffs/merges them.
+# (Git LFS intentionally not used: assets are small, and GitHub Pages builds
+#  via actions/checkout would otherwise receive LFS pointer files.)
+* text=auto eol=lf
+
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.ico   binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.otf   binary
+*.pdf   binary
+*.zip   binary
