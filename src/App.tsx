@@ -14,6 +14,8 @@ const imgContainer7 = `${assetPathPrefix}/a6466.svg`;
 const imgContainer8 = `${assetPathPrefix}/0e643.svg`;
 const imgHeroPhoto = `${assetPathPrefix}/hero-photo.jpg`;
 const imgAboutOffice = `${assetPathPrefix}/about-office.jpg`;
+const imgLogoWebp = `${assetPathPrefix}/logo.webp`;
+const imgLogoPng = `${assetPathPrefix}/logo.png`;
 
 const CONTACT_EMAIL = "office@eliraz.co.il";
 const CONTACT_PHONE = "050-1234567";
@@ -89,9 +91,15 @@ export default function App() {
       <header className="sticky top-0 z-50 backdrop-blur-[2px] bg-[rgba(255,255,255,0.95)] border-b border-[#f1f5f9] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]">
         <div className="h-[72px] md:h-[96px] max-w-[1240px] mx-auto w-full px-4 sm:px-6 flex items-center justify-between gap-4">
           {/* Logo */}
-          <a href="#home" onClick={() => setMenuOpen(false)} className="flex flex-col items-end no-underline">
-            <span className="font-['Heebo:Black'] font-black text-[#0f2742] text-[30px] leading-[36px] tracking-[-0.75px]">מיקי אלירז</span>
-            <span className="font-['Heebo:SemiBold'] font-semibold text-[#64748b] text-[11px] tracking-[0.55px] uppercase leading-[13.75px]">משרד רואי חשבון</span>
+          <a href="#home" onClick={() => setMenuOpen(false)} className="flex items-center gap-2.5 md:gap-3 no-underline shrink-0">
+            <picture className="shrink-0">
+              <source srcSet={imgLogoWebp} type="image/webp" />
+              <img src={imgLogoPng} alt="" width={162} height={144} className="block h-11 md:h-[60px] w-auto" />
+            </picture>
+            <span className="flex flex-col items-end">
+              <span className="font-['Heebo:Black'] font-black text-[#0f2742] text-[30px] leading-[36px] tracking-[-0.75px]">מיקי אלירז</span>
+              <span className="font-['Heebo:SemiBold'] font-semibold text-[#64748b] text-[11px] tracking-[0.55px] uppercase leading-[13.75px]">משרד רואי חשבון</span>
+            </span>
           </a>
 
           {/* Navigation */}
