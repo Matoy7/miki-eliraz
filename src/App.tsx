@@ -76,7 +76,7 @@ export default function App() {
       <main>
         {/* Hero */}
         <section id="home" className={`bg-surface ${HEADER_OFFSET}`}>
-          <div className="container-page hero-y grid lg:grid-cols-2 gap-16 items-center">
+          <div className="container-page hero-y grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="flex flex-col items-start">
               <h1 className="flex flex-col gap-2 text-navy">
                 <span className="font-['Heebo:Black'] font-black text-display">אלירז מיכאל ושות'</span>{" "}
@@ -89,7 +89,7 @@ export default function App() {
                 לעוסקים מורשים, פטורים זעירים, חברות ועמותות.
               </p>
             </div>
-            <div className="hidden lg:block aspect-[5/4] rounded-2xl overflow-hidden shadow-[0px_20px_40px_-10px_rgba(0,0,0,0.15)]">
+            <div className="aspect-[4/3] md:aspect-video lg:aspect-[5/4] rounded-2xl overflow-hidden shadow-[0px_20px_40px_-10px_rgba(0,0,0,0.15)]">
               <img src={imgHeroPhoto} alt="" className="size-full object-cover object-top" fetchPriority="high" />
             </div>
           </div>
