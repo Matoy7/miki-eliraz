@@ -204,27 +204,6 @@ export default function App() {
             </h1>
             {/* Gold accent */}
             <div className="bg-[#cca262] h-[3px] rounded-[2px] w-[44px]" />
-            {/* Contact details */}
-            <ul className="flex flex-col gap-0 sm:gap-2.5 pt-2 sm:pt-3 list-none m-0 p-0">
-              {[
-                { href: MAPS_URL, icon: imgContainer6, iconCls: "h-[11.18px] w-[8.4px]", text: CONTACT_ADDRESS, external: true },
-                { href: TEL_HREF, icon: imgContainer8, iconCls: "size-[11.2px] -rotate-90", text: CONTACT_PHONE, external: false },
-                { href: `mailto:${CONTACT_EMAIL}`, icon: imgContainer7, iconCls: "h-[8.4px] w-[11.2px]", text: CONTACT_EMAIL, external: false },
-              ].map(({ href, icon, iconCls, text, external }) => (
-                <li key={text}>
-                  <a
-                    href={href}
-                    {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    className="group flex items-center gap-3 min-h-[44px] sm:min-h-[32px] no-underline"
-                  >
-                    <span className="bg-[#0f2742] rounded-full size-8 flex items-center justify-center shrink-0">
-                      <img alt="" className={`block max-w-none ${iconCls}`} src={icon} />
-                    </span>
-                    <span className="font-['Heebo:Medium'] font-medium text-[#1e293b] text-[17px] leading-[24px] group-hover:text-[#0f2742] group-hover:underline underline-offset-4">{text}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
             {/* Subheading */}
             <div className="pt-4 w-full text-right">
               <p className="font-['Heebo:Bold'] font-bold text-[#1e293b] text-[20px] leading-[28px] sm:text-[24px] sm:leading-[32px] mb-0">ראיית חשבון, ייעוץ וליווי פיננסי</p>
